@@ -1,0 +1,153 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-blue: #3a445d;
+  --color-gray-brown: #5e5768;
+  --color-gray-middle: #928779;
+  --color-gray-green: #d4d2a5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-gray-middle);
+  font-family: monospace;
+}
+
+/** @header */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto 0;
+  height: auto;
+  padding: 20px;
+  border-bottom: 2px var(--color-black) solid;
+  border-radius: 60px;
+}
+
+header h1 {
+  color: var(--color-gray-brown);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/** @tabela */
+
+.tabela {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.tabela .titulo {
+  color: var(--color-gray-brown);
+}
+
+.tabela .jogo {
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: none;
+}
+
+.tabela .jogo .square {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  color: var(--color-white);
+  background-color: var(--color-gray-brown);
+  border: var(--color-gray-green) 3px dotted;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  cursor: pointer;
+}
+
+.tabela .jogo .square:hover {
+  background-color: var(--color-gray-blue);
+}
+
+.tabela .descricao {
+  color: var(--color-gray-brown);
+}
+
+/** @mode */
+
+#mode {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 110px;
+  left: 30px;
+  padding: 0 3px;
+  border: 2px solid var(--color-black);
+  border-radius: 99999999px;
+  background-color: var(--color-white);
+  text-align: center;
+  font-size: 30px;
+}
+
+/** @responsivo */
+
+@media screen and (max-width: 450px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 5px 0;
+  }
+
+  .tabela {
+    font-size: 14px;
+  }
+
+  .tabela .jogo {
+    max-width: 100%;
+  }
+
+  .tabela .jogo .square {
+    width: 120px;
+    height: 120px;
+  }
+
+  #mode {
+    top: 115px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .tabela .jogo .square {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tabela .jogo .titulo {
+    font-size: 20px;
+  }
+
+  .tabela .jogo .square {
+    width: 70px;
+    height: 70px;
+  }
+
+  #mode {
+    top: 490px;
+  }
+}
+
+@media screen and (max-width: 220px) {
+  #mode {
+    top: 520px;
+  }
+}
