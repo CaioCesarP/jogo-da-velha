@@ -1,6 +1,5 @@
 const createElements = (type, classTo, where, many, text = undefined) => {
   let toAppend = [];
-  let elementCreate;
   let elementPlace = document.querySelector(where);
 
   for (let i = 1; i <= many; i++) {
@@ -14,7 +13,9 @@ const createElements = (type, classTo, where, many, text = undefined) => {
   });
 };
 
-createElements("div", "square", ".jogo", 9);
+createElements("div", "square", ".linha1", 3, undefined);
+createElements("div", "square", ".linha2", 3, undefined);
+createElements("div", "square", ".linha3", 3, undefined);
 
 const jogabilidade = (start) => {
   let counterDescricao = 0;
@@ -41,14 +42,26 @@ const jogabilidade = (start) => {
     );
   };
 
+  const rules = (e) => {
+    const horizontal = () => {
+      let parent = e.parentNode;
+      parent.children[0].textContent === parent.children[1].textContent &&
+        parent.children[1].textContent === parent.children[2].textContent &&
+        (document.querySelector(".tabela .descricao").textContent = `Jogador ${
+          start === "X" ? "O" : "X"
+        } ganhou!`);
+    };
+    horizontal();
+  };
+
   square.forEach((element) => {
     element.addEventListener("click", (e) => {
       changeStart(e.target);
+      rules(e.target);
       counterDescricao += 1;
       counterDescricao === 9 &&
-        ((document.querySelector(".descricao").textContent = "Velha!"),
         (document.querySelector(".tabela .titulo").textContent =
-          "reiniciar partida"));
+          "reiniciar partida");
     });
   });
 };
