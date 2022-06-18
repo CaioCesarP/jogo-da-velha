@@ -1,3 +1,4 @@
+// função responsável por criar elementos no HTML
 const createElements = (type, classTo, where, many, text = undefined) => {
   let toAppend = [];
   let elementPlace = document.querySelector(where);
@@ -13,16 +14,22 @@ const createElements = (type, classTo, where, many, text = undefined) => {
   });
 };
 
+// criando colunas com os square
 createElements("div", "square", ".linha1", 3, undefined);
 createElements("div", "square", ".linha2", 3, undefined);
 createElements("div", "square", ".linha3", 3, undefined);
 
 const jogabilidade = (start) => {
+  // counter auxililiar para validar empate
   let counterDescricao = 0;
+
+  // array com todos os square
   let square = document.querySelectorAll(".square");
 
+  // criando descrição
   createElements("h3", "descricao", ".tabela", 1, `Jogador atual é o ${start}`);
 
+  // função responsável por alterar o jogador
   const changeStart = (e) => {
     let descricao = document.querySelector(".descricao");
 
@@ -42,28 +49,63 @@ const jogabilidade = (start) => {
     );
   };
 
-  const rules = (e) => {
-    const horizontal = () => {
-      let square = document.querySelectorAll(".square");
-      let parent = e.parentNode;
-      parent.children[0].textContent === parent.children[1].textContent &&
-        parent.children[1].textContent === parent.children[2].textContent &&
-        (document.querySelector(".tabela .descricao").textContent = `Jogador ${
-          start === "X" ? "O" : "X"
-        } ganhou!`) &&
-        square.forEach( e => {
-          e.setAttribute(
-          "style",
-          "cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
-        )});
+  // função com as regras do jogo
+  const rules = () => {
+    let changeStyle = () => {
+      (document.querySelector(".tabela .descricao").textContent = `Jogador ${
+        start === "X" ? "O" : "X"
+      } ganhou!`) &&
+      square.forEach( e => {
+        e.setAttribute(
+        "style",
+        "cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
+      )});
+    }
+    const condicaoVitoria = () => {
+      //horizontal
+      (square[0].textContent === square[1].textContent && 
+        square[0].textContent === square[2].textContent) &&
+          square[0].textContent !== "" &&
+            changeStyle();
+      (square[3].textContent === square[4].textContent && 
+        square[3].textContent === square[5].textContent) &&
+          square[3].textContent !== "" &&
+            changeStyle();
+      (square[6].textContent === square[7].textContent && 
+        square[6].textContent === square[8].textContent) &&
+          square[6].textContent !== "" &&
+            changeStyle();
+      //vertical
+      (square[0].textContent === square[3].textContent && 
+        square[0].textContent === square[6].textContent) &&
+          square[0].textContent !== "" &&
+            changeStyle();
+      (square[1].textContent === square[4].textContent && 
+        square[1].textContent === square[7].textContent) &&
+          square[1].textContent !== "" &&
+            changeStyle();
+      (square[2].textContent === square[5].textContent && 
+        square[2].textContent === square[8].textContent) &&
+          square[2].textContent !== "" &&
+            changeStyle();
+      //diagonal
+      (square[0].textContent === square[4].textContent && 
+        square[0].textContent === square[8].textContent) &&
+          square[0].textContent !== "" &&
+            changeStyle();
+      (square[2].textContent === square[4].textContent && 
+        square[2].textContent === square[6].textContent) &&
+          square[2].textContent !== "" &&
+            changeStyle();
     };
-    horizontal();
+    return condicaoVitoria();
   };
 
+  // loop que pega todos os elementos
   square.forEach((element) => {
     element.addEventListener("click", (e) => {
       changeStart(e.target);
-      rules(e.target);
+      rules();
       counterDescricao += 1;
       counterDescricao === 9 &&
         (document.querySelector(".tabela .titulo").textContent = "reiniciar partida") &&
