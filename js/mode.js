@@ -1,3 +1,4 @@
+// função responsável por criar elementos no HTML
 const createElementsMode = (type, classTo, where, many, text = undefined) => {
   let toAppend = [];
   let elementCreate;
@@ -14,18 +15,25 @@ const createElementsMode = (type, classTo, where, many, text = undefined) => {
   });
 };
 
+// botão do mode criado
 createElementsMode("p", "mode", "#body", 1, "🌞");
 
+// regra do mode
 const changeMode = () => {
+  // pegando o elemento por id  
   let mode = document.querySelector("#mode");
+
+  // facilitador para redução de escrita
   let doc = document.documentElement.style;
 
+  // verificação de status
   const verify = () => {
     mode.textContent === "🌚"
       ? (mode.textContent = "🌞")
       : (mode.textContent = "🌚");
   };
 
+  // regra para alteração das cores no css
   const changeRoot = () => {
     if (mode.textContent === "🌞") {
       doc.setProperty("--color-black", "#fff");
@@ -45,6 +53,7 @@ const changeMode = () => {
     }
   };
 
+  // evento de click para alteração de status
   mode.addEventListener("click", () => {
     changeRoot();
     verify();
