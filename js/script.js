@@ -34,7 +34,8 @@ const jogabilidade = (start) => {
     let descricao = document.querySelector(".descricao");
 
     e.textContent = start;
-    start === "X" ? (start = "O") : (start = "X");
+    
+    start = start === "X" ? "O" : "X"; 
     e.setAttribute(
       "style",
       "cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
@@ -51,7 +52,9 @@ const jogabilidade = (start) => {
 
   // função com as regras do jogo
   const rules = () => {
+    // facilitador para organizar código
     let changeStyle = () => {
+      (document.querySelector(".tabela .titulo").textContent = "reiniciar partida") &&
       (document.querySelector(".tabela .descricao").textContent = `Jogador ${
         start === "X" ? "O" : "X"
       } ganhou!`) &&
@@ -61,9 +64,11 @@ const jogabilidade = (start) => {
         "cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
       )});
     }
+    // condições para um vencedor
     const condicaoVitoria = () => {
       //horizontal
-      (square[0].textContent === square[1].textContent && 
+      const horizontal = () => {
+        (square[0].textContent === square[1].textContent && 
         square[0].textContent === square[2].textContent) &&
           square[0].textContent !== "" &&
             changeStyle();
@@ -75,8 +80,12 @@ const jogabilidade = (start) => {
         square[6].textContent === square[8].textContent) &&
           square[6].textContent !== "" &&
             changeStyle();
+      };
+      horizontal();
+  
       //vertical
-      (square[0].textContent === square[3].textContent && 
+      const vertical = () => {
+        (square[0].textContent === square[3].textContent && 
         square[0].textContent === square[6].textContent) &&
           square[0].textContent !== "" &&
             changeStyle();
@@ -88,8 +97,12 @@ const jogabilidade = (start) => {
         square[2].textContent === square[8].textContent) &&
           square[2].textContent !== "" &&
             changeStyle();
+      };
+      vertical();
+
       //diagonal
-      (square[0].textContent === square[4].textContent && 
+      const diagonal = () => {
+        (square[0].textContent === square[4].textContent && 
         square[0].textContent === square[8].textContent) &&
           square[0].textContent !== "" &&
             changeStyle();
@@ -97,6 +110,9 @@ const jogabilidade = (start) => {
         square[2].textContent === square[6].textContent) &&
           square[2].textContent !== "" &&
             changeStyle();
+      }
+      diagonal();
+      
     };
     return condicaoVitoria();
   };

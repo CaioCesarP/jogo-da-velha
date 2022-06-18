@@ -81,6 +81,26 @@ header h1 {
   color: var(--color-gray-brown);
 }
 
+/** @footer */
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-top: 3px solid var(--color-black);
+  box-shadow: 0 -5px 3px -3px var(--color-white);
+}
+
+footer .autor {
+  color: var(--color-gray-brown);
+}
+
+footer .autor .link {
+  color: var(--color-gray-blue);
+}
+
 /** @mode */
 
 #mode {
@@ -135,7 +155,7 @@ header h1 {
 }
 
 @media screen and (max-width: 400px) {
-  .tabela .jogo .titulo {
+  .tabela .titulo  {
     font-size: 20px;
   }
 
