@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
 :root {
   --color-black: #000;
   --color-white: #fff;
@@ -5,13 +8,15 @@
   --color-gray-brown: #5e5768;
   --color-gray-middle: #928779;
   --color-gray-green: #d4d2a5;
+  --font-Montserrat: 'Montserrat', sans-serif;
+  --font-TitanOne:  'Titan One', cursive;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: var(--color-gray-middle);
-  font-family: monospace;
+  font-family: var(--font-Montserrat);
 }
 
 /** @header */
@@ -27,9 +32,13 @@ header {
   border-radius: 60px;
 }
 
+header .logo {
+width: 100px;
+height: 100px;
+}
+
 header h1 {
   color: var(--color-gray-brown);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /** @tabela */
@@ -69,6 +78,7 @@ header h1 {
   border: var(--color-gray-green) 3px solid;
   justify-content: center;
   align-items: center;
+  font-family: var(--font-TitanOne);
   font-size: 80px;
   cursor: pointer;
 }
@@ -87,7 +97,7 @@ header h1 {
   user-select: none;
   cursor: pointer;
   position: absolute;
-  top: 110px;
+  top: 120px;
   left: 30px;
   padding: 0 3px;
   border: 2px solid var(--color-black);
@@ -123,7 +133,7 @@ header h1 {
   }
 
   #mode {
-    top: 115px;
+    top: 170px;
   }
 }
 
@@ -145,12 +155,12 @@ header h1 {
   }
 
   #mode {
-    top: 490px;
+    top: 520px;
   }
 }
 
-@media screen and (max-width: 220px) {
+@media screen and (max-width: 230px) {
   #mode {
-    top: 520px;
+    top: 570px;
   }
 }
