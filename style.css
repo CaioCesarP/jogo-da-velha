@@ -43,7 +43,7 @@ header h1 {
 
 /** @tabela */
 
-.tabela {
+.tabela, .botao {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -53,8 +53,29 @@ header h1 {
   font-size: 20px;
 }
 
-.tabela .titulo {
+.botao {
+  width: auto;
+  min-height: 130px;
+}
+
+.botao .botao-acao {
+  margin: 1rem 0;
+  font-size: 1.5em;
+  font-family: var(--font-Montserrat);
+  position: relative;
   color: var(--color-gray-brown);
+  padding: 20px 10px;
+  background-color: var(--color-gray-green);
+  border: 2px solid var(--color-black);
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s;
+}
+
+.botao .botao-acao:active {
+  font-size: 1.3em;
+  opacity: 0.7;
 }
 
 .tabela .jogo {
@@ -145,7 +166,7 @@ header h1 {
 }
 
 @media screen and (max-width: 400px) {
-  .tabela .jogo .titulo {
+  .botao .botao-acao {
     font-size: 20px;
   }
 

@@ -42,13 +42,23 @@ const Main = (start) => {
   // função com as regras do jogo
   const rules = () => {
     let changeToVictoryCondition = (one, two, three) => {
+      const winners = [one, two, three];
+
       (getElementOnDocument(".tabela .descricao").textContent = `Jogador ${
         start === "X" ? "O" : "X"
       } ganhou!`) &&
-      squares.forEach( element => {
+        squares.forEach( element => {
         element.setAttribute(
         "style",
         "cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
+      )});
+
+      getElementOnDocument(".botao .botao-acao").textContent = "reiniciar partida"
+
+      winners.forEach(element => {
+        squares[element].setAttribute(
+          "style", 
+          "color: red; cursor: default; pointer-events: none; background-color: var(--color-gray-blue); border: solid"
       )});
     }
 
@@ -90,7 +100,7 @@ const Main = (start) => {
       rules();
       counterDescribe += 1;
       counterDescribe === 9 &&
-        (getElementOnDocument(".tabela .titulo").textContent = "reiniciar partida") &&
+        (getElementOnDocument(".botao .botao-acao").textContent = "reiniciar partida") &&
           !(getElementOnDocument(".tabela .descricao").textContent.match("ganhou")) &&
             (getElementOnDocument(".tabela .descricao").textContent = "VELHA!");
     });
