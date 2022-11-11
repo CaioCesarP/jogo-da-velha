@@ -1,7 +1,7 @@
 let elementCreate;
 
 const createElements = (type, classTo, where, many, text = undefined) => {
-    let toAppend = []
+    let toAppend = [ ]
     let elementPlace = document.querySelector(where)
   
     for (let i = 1; i <= many; i++) {
@@ -16,7 +16,7 @@ const createElements = (type, classTo, where, many, text = undefined) => {
 };
 
 const createElementsMode = (type, classTo, where, many, text = undefined) => {
-  let toAppend = []
+  let toAppend = [ ]
   let elementPlace = document.querySelector(where)
 
   for (let i = 1; i <= many; i++) {
@@ -31,5 +31,5 @@ const createElementsMode = (type, classTo, where, many, text = undefined) => {
 };
 
 const getElementOnDocument = (className) => {
-  return document.querySelector(className);
+  return document.querySelector(className)
 }
