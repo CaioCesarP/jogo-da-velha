@@ -1,11 +1,11 @@
 let elementCreate;
 
 const createElements = (type, classTo, where, many, text = undefined) => {
-    let toAppend = [];
-    let elementPlace = document.querySelector(where);
+    let toAppend = []
+    let elementPlace = document.querySelector(where)
   
     for (let i = 1; i <= many; i++) {
-      toAppend.push((elementCreate = document.createElement(type)));
+      toAppend.push((elementCreate = document.createElement(type)))
     }
   
     toAppend.forEach((element, i) => {
@@ -16,8 +16,8 @@ const createElements = (type, classTo, where, many, text = undefined) => {
 };
 
 const createElementsMode = (type, classTo, where, many, text = undefined) => {
-  let toAppend = [];
-  let elementPlace = document.querySelector(where);
+  let toAppend = []
+  let elementPlace = document.querySelector(where)
 
   for (let i = 1; i <= many; i++) {
     toAppend.push((elementCreate = document.createElement(type)));
