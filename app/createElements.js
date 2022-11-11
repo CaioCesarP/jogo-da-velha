@@ -1,26 +1,26 @@
 let elementCreate;
 
 const createElements = (type, classTo, where, many, text = undefined) => {
-    let toAppend = [ ]
-    let elementPlace = document.querySelector(where)
+    let toAppend = [];
+    let elementPlace = document.querySelector(where);
   
     for (let i = 1; i <= many; i++) {
-      toAppend.push((elementCreate = document.createElement(type)))
+      toAppend.push((elementCreate = document.createElement(type)));
     }
   
     toAppend.forEach((element, i) => {
-        element.className = classTo;
-        element.textContent = text;
-        elementPlace.append(toAppend[i]);
+        element.className = classTo
+        element.textContent = text
+        elementPlace.append(toAppend[i])
     });
 };
 
 const createElementsMode = (type, classTo, where, many, text = undefined) => {
-  let toAppend = [ ]
+  let toAppend = []
   let elementPlace = document.querySelector(where)
 
   for (let i = 1; i <= many; i++) {
-    toAppend.push((elementCreate = document.createElement(type)));
+    toAppend.push((elementCreate = document.createElement(type)))
   }
 
   toAppend.forEach((element, i) => {
@@ -31,5 +31,5 @@ const createElementsMode = (type, classTo, where, many, text = undefined) => {
 };
 
 const getElementOnDocument = (className) => {
-  return document.querySelector(className)
+  return document.querySelector(className);
 }

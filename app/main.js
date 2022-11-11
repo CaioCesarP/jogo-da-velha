@@ -1,7 +1,7 @@
 // criando colunas com os square
-createElements("div", "square", ".linha1", 3, undefined);
-createElements("div", "square", ".linha2", 3, undefined);
-createElements("div", "square", ".linha3", 3, undefined);
+createElements("div", "square", ".linha1", 3, undefined)
+createElements("div", "square", ".linha2", 3, undefined)
+createElements("div", "square", ".linha3", 3, undefined)
 
 const Main = (start) => {
 
