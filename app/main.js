@@ -6,13 +6,13 @@ createElements("div", "square", ".linha3", 3, undefined)
 const Main = (start) => {
 
   // Contador para atribuir número de jogadas
-  let counterDescribe = 0;
+  let counterDescribe = 0
 
   // array com todos os square
-  let squares = document.querySelectorAll(".square");
+  let squares = document.querySelectorAll(".square")
 
   // criando descrição
-  createElements("h3", "descricao", ".tabela", 1, `Jogador atual é o ${start}`);
+  createElements("h3", "descricao", ".tabela", 1, `Jogador atual é o ${start}`)
 
   // função responsável por alterar o jogador
   const changeStart = (elementClicked) => {
