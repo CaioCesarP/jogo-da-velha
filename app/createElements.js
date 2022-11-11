@@ -9,9 +9,9 @@ const createElements = (type, classTo, where, many, text = undefined) => {
     }
   
     toAppend.forEach((element, i) => {
-        element.className = classTo;
-        element.textContent = text;
-        elementPlace.append(toAppend[i]);
+        element.className = classTo
+        element.textContent = text
+        elementPlace.append(toAppend[i])
     });
 };
 
